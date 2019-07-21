@@ -27,6 +27,13 @@ output:
 <script src="https://gist.github.com/user/id.js"></script>
 ```
 
+#### `settings.py`
+```python
+INSTALLED_APPS+= [
+    'django_embed_gist'
+]
+```
+
 #### Examples
 ```html
 {% load embed_gist %}
