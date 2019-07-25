@@ -16,9 +16,6 @@ def repl(m):
         return m[0]
     a = re.compile('<a[^>]* href="([^"]*)"')
     url = a.match(m[0]).group(1)
-    print("")
-    print("url = %s" % url)
-    print("""<script src="%s.js"></script>""" % url)
     return """<script src="%s.js"></script>""" % url
 
 @register.filter
