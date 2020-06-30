@@ -6,7 +6,7 @@ import re
 register = template.Library()
 
 """
-{% load gist %}
+{% load embed_gist %}
 
 {{ post.body|embed_gist }}
 """
@@ -16,7 +16,8 @@ def repl(m):
         return m[0]
     a = re.compile('<a[^>]* href="([^"]*)"')
     url = a.match(m[0]).group(1)
-    return """<script src="%s.js"></script>""" % url
+    gist_id = url.split("/")[-1]
+    return """<script src="https://gist.github.com/%s.js"></script>""" % gist_id
 
 @register.filter
 def embed_gist(html):
